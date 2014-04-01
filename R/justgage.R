@@ -1,7 +1,7 @@
 
 #' @export
-justgage <- function(title, value, min, max, label = NULL, 
-                     width = 200, height = 160) {
+justgage <- function(title, value, min, max, 
+                     label = NULL, width = 200, height = 160) {
   
   structure(class = "justgage", list(
     title = title,
@@ -12,7 +12,6 @@ justgage <- function(title, value, min, max, label = NULL,
     width = width,
     height = height
   ))
-  
 }
 
 #' @export
@@ -39,8 +38,10 @@ knit_print.justgage <- function(x) {
                 sep = "")
   
   # return html and dependencies
-  structure(html, class = "knit_asis", 
-            knit_meta = list(raphael_dependency(), justgage_dependency()))
+  structure(class = "knit_asis",
+    html,
+    knit_meta = list(raphael_dependency(), justgage_dependency())
+  )
 }
 
 justgage_dependency <- function() {

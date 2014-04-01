@@ -3,7 +3,7 @@
 justgage <- function(title, value, min, max, 
                      label = NULL, width = 200, height = 160) {
   
-  structure(class = "justgage", list(
+  structure(class = "justgage_html", list(
     title = title,
     label = label,
     value = value,
@@ -15,7 +15,7 @@ justgage <- function(title, value, min, max,
 }
 
 #' @export
-knit_print.justgage <- function(x) {
+knit_print.justgage_html <- function(x) {
   
   # create random/unique id to bind the div and script
   id <- paste("justgage", as.integer(stats::runif(1, 1, 10000)), sep="-") 

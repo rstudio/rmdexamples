@@ -1,2 +1,4 @@
+export(datatable)
 export(justgage)
+export(knit_print.datatable)
 export(knit_print.justgage)

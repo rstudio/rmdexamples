@@ -5,7 +5,7 @@ Version: 1.0
 Date: 2014-04-01
 Author: JJ Allaire
 Maintainer: JJ Allaire <jj@rstudio.com>
-Description: Example R Markdown templates and custom output formats. 
-  Samples of functions that embed complex HTML objects within 
-  R Markdown documents.
+Description: Example R Markdown templates and custom output formats.
+    Samples of functions that embed complex HTML objects within
+    R Markdown documents.
 License: MIT

@@ -1,6 +1,6 @@
-\name{RMarkdownExamples-package}
-\alias{RMarkdownExamples-package}
-\alias{RMarkdownExamples}
+\name{RmdExamples-package}
+\alias{RmdExamples-package}
+\alias{RmdExamples}
 \docType{package}
 \title{
 What the package does (short line)
@@ -12,7 +12,7 @@ More about what it does (maybe more than one line)
 }
 \details{
 \tabular{ll}{
-Package: \tab RMarkdownExamples\cr
+Package: \tab RmdExamples\cr
 Type: \tab Package\cr
 Version: \tab 1.0\cr
 Date: \tab 2014-04-01\cr

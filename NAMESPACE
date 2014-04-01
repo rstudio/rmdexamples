@@ -1,2 +1,2 @@
 export(justgage)
-export(knit_print.justgage_html)
+export(knit_print.justgage)

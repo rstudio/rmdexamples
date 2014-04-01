@@ -1,0 +1,2 @@
+export(justgage)
+export(knit_print.justgage)

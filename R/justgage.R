@@ -28,7 +28,7 @@ justgage <- function(title, value, min, max,
 }
 
 #' @export
-print.justgage_html <- function(x) {
+print.justgage_html <- function(x, ...) {
   viewer_html_output(x, justgage_dependencies())
 }
 

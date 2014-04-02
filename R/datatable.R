@@ -37,7 +37,7 @@ datatable <- function(x,
 }
 
 #' @export
-print.datatable_html <- function(x) {
+print.datatable_html <- function(x, ...) {
   viewer_html_output(x, datatables_dependencies())
 }
 

@@ -23,42 +23,44 @@ datatable <- function(x,
                         sep = ""),
     ...)
   
-  # return as object 
-  structure(html_table, 
-            tableid = id,
-            class = "datatable")
+  # create the script which binds the datatable
+  script <- paste(
+    "<script>",
+      "$(document).ready(function() {",
+        "$('#", id ,"').dataTable();",
+      "});",
+   "</script>", sep = "")
+  
+  # return html
+  html <- paste(html_table, script, sep = "")
+  structure(class = "datatable_html", html)
 }
 
 #' @export
-knit_print.datatable <- function(x) {
-  
-  # get the table id
-  id <- attr(x, "tableid")
-  
-  # create the script which binds the datatable
-  script <- paste("<script>",
-                    "$(document).ready(function() {",
-                       "$('#", id ,"').dataTable();",
-                    "});",
-                  "</script>", sep = "")
-  
-  # create html by combining table and script
-  html <- paste(x, script, sep = "")
-  
-  # return html and dependencies
-  structure(class = "knit_asis",
-    html,
-    knit_meta = datatables_dependency()
-  )
+print.datatable_html <- function(x) {
+  viewer_html_output(x, datatables_dependencies())
 }
 
-datatables_dependency <- function() {
-  structure(class = "html_dependency", list(
-    name = "datatables",
-    version = "1.9.4",
-    path = system.file("www/libs/datatables-1.9.4", package = "RmdExamples"),
-    stylesheet = "css/DT_bootstrap.css",
-    script = c("js/jquery.dataTables.min.js",
-               "js/DT_bootstrap.js")
-  ))
+#' @export
+knit_print.datatable_html <- function(x) {
+  knitr_html_output(x, datatables_dependencies())
+}
+
+# list of html dependencies for datatables
+datatables_dependencies <- function() {
+  list(
+    html_dependency(
+      name = "jquery",
+      version = "1.11.0",
+      path = system.file("www/libs/jquery-1.11.0", package = "RmdExamples"),
+      script = "jquery.min.js"
+    ),
+    html_dependency(
+      name = "datatables",
+      version = "1.9.4",
+      path = system.file("www/libs/datatables-1.9.4", package = "RmdExamples"),
+      stylesheet = "css/jquery.dataTables.css",
+      script = "js/jquery.dataTables.min.js"
+    )
+  )
 }

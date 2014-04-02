@@ -10,5 +10,7 @@ Description: Example R Markdown templates and custom output formats.
     R Markdown documents.
 Imports:
     knitr (>= 1.5),
-    stats
+    RJSONIO,
+    stats,
+    utils
 License: MIT

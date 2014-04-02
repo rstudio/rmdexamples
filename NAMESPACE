@@ -1,4 +1,6 @@
+S3method(print,datatable_html)
+S3method(print,justgage_html)
 export(datatable)
 export(justgage)
-export(knit_print.datatable)
-export(knit_print.justgage)
+export(knit_print.datatable_html)
+export(knit_print.justgage_html)

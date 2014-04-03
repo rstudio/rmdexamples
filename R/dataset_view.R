@@ -10,6 +10,6 @@ dataset_view <- function(csv, output_file) {
   # render to the output file using the specified csv
   rmarkdown::render(input = report, 
                     output_file = output_file,
-                    params = list(data = csv), 
+                    params = list(dataset = csv), 
                     envir = new.env())
 } 

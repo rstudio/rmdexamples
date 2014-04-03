@@ -25,13 +25,13 @@ justgage <- function(title, value, min, max,
   
   # define html dependencies
   dependencies <- list(
-    rmarkdown::html_dependency(
+    htmltools::html_dependency(
       name = "raphael",
       version = "2.1.2",
       path = system.file("www/libs/raphael-2.1.2", package = "RmdExamples"),
       script = "raphael.js"
     ),
-    rmarkdown::html_dependency(
+    htmltools::html_dependency(
       name = "justgage",
       version = "1.0.1",
       path = system.file("www/libs/justgage-1.0.1", package = "RmdExamples"),
@@ -40,5 +40,5 @@ justgage <- function(title, value, min, max,
   )
   
   # return html output
-  rmarkdown::html_output(html, dependencies)
+  htmltools::html_output(html, dependencies)
 }

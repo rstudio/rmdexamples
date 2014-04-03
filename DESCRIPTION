@@ -9,8 +9,8 @@ Description: Example R Markdown templates and custom output formats.
     Samples of functions that embed complex HTML objects within
     R Markdown documents.
 Imports:
-    rmarkdown (>= 0.1.53),
     knitr (>= 1.5.25),
+    htmltools,
     RJSONIO,
     stats,
     utils

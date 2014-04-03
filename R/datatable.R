@@ -29,13 +29,13 @@ datatable <- function(x, digits = getOption("digits"),
   
   # define dependencies
   dependencies <- list(
-    rmarkdown::html_dependency(
+    htmltools::html_dependency(
       name = "jquery",
       version = "1.11.0",
       path = system.file("www/libs/jquery-1.11.0", package = "RmdExamples"),
       script = "jquery.min.js"
     ),
-    rmarkdown::html_dependency(
+    htmltools::html_dependency(
       name = "datatables",
       version = "1.9.4",
       path = system.file("www/libs/datatables-1.9.4", package = "RmdExamples"),
@@ -45,5 +45,5 @@ datatable <- function(x, digits = getOption("digits"),
   )
   
   # return html output
-  rmarkdown::html_output(html, dependencies)
+  htmltools::html_output(html, dependencies)
 }

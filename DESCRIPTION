@@ -1,4 +1,4 @@
-Package: RmdExamples
+Package: rmdexamples
 Type: Package
 Title: Examples uses of various R Markdown developer interfaces
 Version: 1.0

@@ -28,13 +28,13 @@ justgage <- function(title, value, min, max,
     htmltools::html_dependency(
       name = "raphael",
       version = "2.1.2",
-      path = system.file("www/libs/raphael-2.1.2", package = "RmdExamples"),
+      path = system.file("www/libs/raphael-2.1.2", package = "rmdexamples"),
       script = "raphael.js"
     ),
     htmltools::html_dependency(
       name = "justgage",
       version = "1.0.1",
-      path = system.file("www/libs/justgage-1.0.1", package = "RmdExamples"),
+      path = system.file("www/libs/justgage-1.0.1", package = "rmdexamples"),
       script = "justgage.1.0.1.min.js"
     )
   )

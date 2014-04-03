@@ -32,13 +32,13 @@ datatable <- function(x, digits = getOption("digits"),
     htmltools::html_dependency(
       name = "jquery",
       version = "1.11.0",
-      path = system.file("www/libs/jquery-1.11.0", package = "RmdExamples"),
+      path = system.file("www/libs/jquery-1.11.0", package = "rmdexamples"),
       script = "jquery.min.js"
     ),
     htmltools::html_dependency(
       name = "datatables",
       version = "1.9.4",
-      path = system.file("www/libs/datatables-1.9.4", package = "RmdExamples"),
+      path = system.file("www/libs/datatables-1.9.4", package = "rmdexamples"),
       stylesheet = "css/jquery.dataTables.css",
       script = "js/jquery.dataTables.min.js"
     )

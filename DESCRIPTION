@@ -10,6 +10,7 @@ Description: Example R Markdown templates and custom output formats.
     R Markdown documents.
 Imports:
     knitr (>= 1.5.25),
+    rmarkdown,
     htmltools,
     RJSONIO,
     stats,

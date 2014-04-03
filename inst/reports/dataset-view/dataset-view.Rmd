@@ -1,0 +1,28 @@
+---
+output: html_document
+data: mtcars.csv
+---
+
+```{r setup, include=FALSE}
+
+# don't show R code or leading ## for output
+knitr::opts_chunk$set(echo = FALSE, comment = NA)
+
+# read the dataset
+dataset <- read.csv(params$data)
+```
+
+## Dataset: `r basename(params$data)`
+
+## Summary
+
+```{r}
+summary(dataset)
+```
+
+## Browse Data
+
+```{r}
+rmdexamples::datatable(dataset)
+```
+

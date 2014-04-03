@@ -5,25 +5,18 @@ params:
   dataset: mtcars.csv
 ---
 
-```{r setup, include=FALSE}
-# don't show R code or leading ## for output
-knitr::opts_chunk$set(echo = FALSE, comment = NA)
-
-# read the dataset
-data <- read.csv(params$dataset)
-```
-
 #### `r params$dataset`
 
 ## Summary
 
-```{r}
+```{r, echo=FALSE, comment=NA}
+data <- read.csv(params$dataset)
 summary(data)
 ```
 
 ## Browse Data
 
-```{r}
-rmdexamples::datatable(data)
+```{r, echo=FALSE, results='asis'}
+knitr::kable(data)
 ```
 

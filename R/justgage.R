@@ -1,35 +1,40 @@
 
 #' @export
-justgage <- function(title, value, min, max, 
-                     label = NULL, width = NULL, height = NULL) {
+justgage <- function(title, value, min, max, label = NULL) {
   structure(class = "justgage", list(
     title = title,
     label = label,
     value = value,
     min = min,
-    max = max,
-    width = width,
-    height = height
+    max = max
   ))
 }
 
 #' @export
 print.justgage <- function(x, ...) {
-  htmltools::html_print(justgage_html(x), justgage_dependencies())
+  htmltools::html_print(
+    justgage_html(x, 450, 350), 
+    justgage_dependencies()
+  )
 }
 
 #' @export
 knit_print.justgage <- function(x, options) {
-  htmltools::html_knit_print(justgage_html(x), justgage_dependencies())
+  htmltools::html_knit_print(
+    justgage_html(x, options$out.width.px, options$out.height.px), 
+    justgage_dependencies()
+  )
 }
 
-justgage_html <- function(x) {
+justgage_html <- function(x, width, height) {
   
   # create random/unique id to bind the div and script
   id <- paste("justgage", as.integer(stats::runif(1, 1, 10000)), sep="-") 
 
+  # resolve width and height
+  
   # create a style attribute for the width and height
-  style <- paste("width:", x$width, "px;height:", x$height, "px", sep = "")
+  style <- paste("width:", width, "px;height:", height, "px", sep = "")
   
   # create a list representing the parameters to JustGage
   options <- list(id = id,

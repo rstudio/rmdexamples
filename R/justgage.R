@@ -31,8 +31,6 @@ justgage_html <- function(x, width, height) {
   # create random/unique id to bind the div and script
   id <- paste("justgage", as.integer(stats::runif(1, 1, 10000)), sep="-") 
 
-  # resolve width and height
-  
   # create a style attribute for the width and height
   style <- paste("width:", width, "px;height:", height, "px", sep = "")
   

@@ -1,21 +1,43 @@
 
 #' @export
 justgage <- function(title, value, min, max, 
-                     label = NULL, width = 200, height = 160) {
+                     label = NULL, width = NULL, height = NULL) {
+  structure(class = "justgage", list(
+    title = title,
+    label = label,
+    value = value,
+    min = min,
+    max = max,
+    width = width,
+    height = height
+  ))
+}
+
+#' @export
+print.justgage <- function(x, ...) {
+  htmltools::html_print(justgage_html(x), justgage_dependencies())
+}
+
+#' @export
+knit_print.justgage <- function(x, options) {
+  htmltools::html_knit_print(justgage_html(x), justgage_dependencies())
+}
+
+justgage_html <- function(x) {
   
   # create random/unique id to bind the div and script
   id <- paste("justgage", as.integer(stats::runif(1, 1, 10000)), sep="-") 
 
   # create a style attribute for the width and height
-  style <- paste("width:", width, "px;height:", height, "px", sep = "")
+  style <- paste("width:", x$width, "px;height:", x$height, "px", sep = "")
   
   # create a list representing the parameters to JustGage
   options <- list(id = id,
-                  title = title,
-                  value = value,
-                  min = min,
-                  max = max,
-                  label = label)
+                  title = x$title,
+                  value = x$value,
+                  min = x$min,
+                  max = x$max,
+                  label = x$label)
 
   # generate html for the justgage
   html <- paste(
@@ -23,8 +45,12 @@ justgage <- function(title, value, min, max,
     "<script>var g = new JustGage(", RJSONIO::toJSON(options), ");</script>",
     sep = "")
   
-  # define html dependencies
-  dependencies <- list(
+  # return html
+  html
+}
+
+justgage_dependencies <- function() {
+  list(
     htmltools::html_dependency(
       name = "raphael",
       version = "2.1.2",
@@ -38,7 +64,4 @@ justgage <- function(title, value, min, max,
       script = "justgage.1.0.1.min.js"
     )
   )
-  
-  # return html output
-  htmltools::html_output(html, dependencies)
 }

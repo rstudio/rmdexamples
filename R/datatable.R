@@ -1,34 +1,61 @@
 
 #' @export
-datatable <- function(x, digits = getOption("digits"), 
-                      row.names = NA, align = NULL, ...) {
+datatable <- function(x) {
+  structure(class = "datatable", list(
+    data = x
+  ))
+}
+
+#' @export
+print.datatable <- function(x, ...) {
+  htmltools::html_print(datatable_html(x), datatable_dependencies())
+}
+
+#' @export
+knit_print.datatable <- function(x, options) {
+  htmltools::html_knit_print(datatable_html(x), datatable_dependencies())
+}
+
+
+datatable_html <- function(x) {
   
   # create random/unique id for the table
   id <- paste("datatable", as.integer(stats::runif(1, 1, 10000)), sep="-") 
   
   # generate an html version of the table that includes the id
-  html <- knitr::kable(
-    x, 
-    format = "html", 
-    digits = digits,
-    row.names = NA,
-    align = align,
-    output = FALSE,
-    table.attr = paste("id=\"", id, "\" ", 
-                        "class=\"table table-bordered\" ",
-                        sep = ""),
-    ...)
-  
-  # create the script which binds the datatable
+  data <- x$data
+  html <- paste(c(
+    sprintf("<table id = \"%s\">", id),
+    c('<thead>', '<tr>', 
+      sprintf('<th>%s</th>', colnames(data)), 
+      '</tr>', '</thead>'),
+    '<tbody>',
+    paste(
+      '<tr>',
+      apply(data, 1, function(z) {
+        paste(sprintf('<td>%s</td>', z), collapse = '')
+      }),
+      '</tr>', sep = ''
+    ),
+    '</tbody>',
+    '</table>'
+  ), sep = '', collapse = '')
+   
+  # append the script which binds the datatable
   html <- paste(html,
-    "<script>",
-      "$(document).ready(function() {",
-        "$('#", id ,"').dataTable();",
-      "});",
-   "</script>", sep = "")
-  
-  # define dependencies
-  dependencies <- list(
+                "<div>&nbsp;</div>",
+                "<script>",
+                "$(document).ready(function() {",
+                "$('#", id ,"').dataTable();",
+                "});",
+                "</script>", sep = "")
+    
+  # return html
+  html
+}
+
+datatable_dependencies <- function() {
+  list(
     htmltools::html_dependency(
       name = "jquery",
       version = "1.11.0",
@@ -43,7 +70,6 @@ datatable <- function(x, digits = getOption("digits"),
       script = "js/jquery.dataTables.min.js"
     )
   )
-  
-  # return html output
-  htmltools::html_output(html, dependencies)
 }
+
+

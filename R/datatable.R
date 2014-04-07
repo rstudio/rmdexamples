@@ -30,12 +30,13 @@ datatable_html <- function(x) {
   html <- paste(c(
     sprintf("<table id = \"%s\">", id),
     c('<thead>', '<tr>', 
-      sprintf('<th>%s</th>', colnames(data)), 
+      sprintf('<th>%s</th>', htmltools::html_escape(colnames(data))), 
       '</tr>', '</thead>'),
     '<tbody>',
     paste(
       '<tr>',
       apply(data, 1, function(z) {
+        z = htmltools::html_escape(z)
         paste(sprintf('<td%s>%s</td>', align, z), collapse = '')
       }),
       '</tr>', sep = ''

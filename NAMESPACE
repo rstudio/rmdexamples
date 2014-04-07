@@ -1,6 +1,5 @@
 S3method(print,datatable)
 S3method(print,justgage)
-export(dataset_view)
 export(datatable)
 export(justgage)
 export(knit_print.datatable)

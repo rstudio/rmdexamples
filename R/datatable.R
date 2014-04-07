@@ -1,8 +1,9 @@
 
 #' @export
-datatable <- function(x) {
+datatable <- function(data, align = NULL) {
   structure(class = "datatable", list(
-    data = x
+    data = data,
+    align = align
   ))
 }
 
@@ -16,7 +17,6 @@ knit_print.datatable <- function(x, options) {
   htmltools::html_knit_print(datatable_html(x), datatable_dependencies())
 }
 
-
 datatable_html <- function(x) {
   
   # create random/unique id for the table
@@ -24,6 +24,9 @@ datatable_html <- function(x) {
   
   # generate an html version of the table that includes the id
   data <- x$data
+  align = if (is.null(align <- x$align)) '' else {
+    sprintf(' align="%s"', c(l = 'left', c = 'center', r = 'right')[align])
+  }
   html <- paste(c(
     sprintf("<table id = \"%s\">", id),
     c('<thead>', '<tr>', 
@@ -33,7 +36,7 @@ datatable_html <- function(x) {
     paste(
       '<tr>',
       apply(data, 1, function(z) {
-        paste(sprintf('<td>%s</td>', z), collapse = '')
+        paste(sprintf('<td%s>%s</td>', align, z), collapse = '')
       }),
       '</tr>', sep = ''
     ),

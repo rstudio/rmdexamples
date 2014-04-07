@@ -14,5 +14,5 @@ Imports:
     stats,
     utils
 Suggests:
-    knitr (>= 1.5.26),
+    knitr (>= 1.5.26)
 License: MIT

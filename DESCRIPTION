@@ -9,6 +9,7 @@ Description: Example R Markdown templates and custom output formats.
     Samples of functions that embed complex HTML objects within
     R Markdown documents.
 Imports:
+    shiny,
     htmltools,
     RJSONIO,
     stats,

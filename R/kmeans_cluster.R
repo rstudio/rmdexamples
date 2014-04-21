@@ -5,16 +5,16 @@ kmeans_cluster <- function(dataset) {
   require(shiny)  
   
   shinyApp(
-    ui = fluidPage(
-      wellPanel(fluidRow(
+    ui = fluidPage(responsive = FALSE,
+      fluidRow(style = "padding-bottom: 20px;",
         column(4, selectInput('xcol', 'X Variable', names(dataset))),
         column(4, selectInput('ycol', 'Y Variable', names(dataset),
                               selected=names(dataset)[[2]])),
         column(4, numericInput('clusters', 'Cluster count', 3,
                                min = 1, max = 9))
-      )),
+      ),
       fluidRow(
-        plotOutput('kmeans')  
+        plotOutput('kmeans', height = "400px")  
       )
     ),
     
@@ -29,7 +29,7 @@ kmeans_cluster <- function(dataset) {
         kmeans(selectedData(), input$clusters)
       })
       
-      output$kmeans <- renderPlot({
+      output$kmeans <- renderPlot(height = 400, {
         par(mar = c(5.1, 4.1, 0, 1))
         plot(selectedData(),
              col = clusters()$cluster,
@@ -38,6 +38,6 @@ kmeans_cluster <- function(dataset) {
       })
     },
     
-    options = list(height = 550)
+    options = list(height = 500)
   )
 }

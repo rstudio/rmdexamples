@@ -1,6 +1,7 @@
 S3method(print,datatable)
 S3method(print,justgage)
 export(datatable)
+export(inlineEditor)
 export(justgage)
 export(kmeans_cluster)
 export(knit_print.datatable)

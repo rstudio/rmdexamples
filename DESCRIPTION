@@ -8,6 +8,8 @@ Maintainer: JJ Allaire <jj@rstudio.com>
 Description: Example R Markdown templates and custom output formats.
     Samples of functions that embed complex HTML objects within
     R Markdown documents.
+Depends:
+    methods
 Imports:
     shiny,
     htmltools,

@@ -12,7 +12,6 @@
 inlineEditor <- function(type=c("plot", "text"), codeWidth=8, initialVal="",
                           height=300) { 
   
-  require(shiny)  
   library(shinyAce)
   
   id <- as.character(round(runif(1, 10000, 99999)))

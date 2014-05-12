@@ -1,9 +1,7 @@
-
+#' @import shiny methods
 #' @export
 kmeans_cluster <- function(dataset) { 
-  
-  require(shiny)  
-  
+
   shinyApp(
     ui = fluidPage(responsive = FALSE,
       fluidRow(style = "padding-bottom: 20px;",

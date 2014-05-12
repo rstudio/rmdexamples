@@ -13,8 +13,8 @@ Depends:
 Imports:
     shiny,
     htmltools,
+    knitr (>= 1.5.33),
     RJSONIO
 Suggests:
-    knitr (>= 1.5.26),
     shinyAce
 License: MIT

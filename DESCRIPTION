@@ -1,7 +1,7 @@
 Package: rmdexamples
 Type: Package
 Title: Examples uses of various R Markdown developer interfaces
-Version: 1.0
+Version: 1.0.1
 Date: 2014-04-01
 Author: JJ Allaire
 Maintainer: JJ Allaire <jj@rstudio.com>

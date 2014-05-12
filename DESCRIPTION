@@ -11,9 +11,7 @@ Description: Example R Markdown templates and custom output formats.
 Imports:
     shiny,
     htmltools,
-    RJSONIO,
-    stats,
-    utils
+    RJSONIO
 Suggests:
     knitr (>= 1.5.26),
     shinyAce

@@ -19,7 +19,7 @@ print.justgage <- function(x, ...) {
 }
 
 #' @export
-knit_print.justgage <- function(x, options, ...) {
+knit_print.justgage <- function(x, ..., options) {
   htmltools::html_knit_print(
     justgage_html(x, options$out.width.px, options$out.height.px),
     justgage_dependencies()

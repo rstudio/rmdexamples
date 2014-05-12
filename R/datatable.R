@@ -13,7 +13,7 @@ print.datatable <- function(x, ...) {
 }
 
 #' @export
-knit_print.datatable <- function(x, options) {
+knit_print.datatable <- function(x, options, ...) {
   htmltools::html_knit_print(datatable_html(x), datatable_dependencies())
 }
 

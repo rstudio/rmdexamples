@@ -13,7 +13,7 @@ justgage <- function(title, value, min, max, label = NULL) {
 #' @export
 print.justgage <- function(x, ...) {
   htmltools::html_print(
-    justgage_html(x, 450, 350), 
+    justgage_html(x, 450, 350),
     justgage_dependencies()
   )
 }
@@ -21,19 +21,19 @@ print.justgage <- function(x, ...) {
 #' @export
 knit_print.justgage <- function(x, options, ...) {
   htmltools::html_knit_print(
-    justgage_html(x, options$out.width.px, options$out.height.px), 
+    justgage_html(x, options$out.width.px, options$out.height.px),
     justgage_dependencies()
   )
 }
 
 justgage_html <- function(x, width, height) {
-  
+
   # create random/unique id to bind the div and script
-  id <- paste("justgage", as.integer(stats::runif(1, 1, 10000)), sep="-") 
+  id <- paste("justgage", as.integer(stats::runif(1, 1, 10000)), sep="-")
 
   # create a style attribute for the width and height
   style <- paste("width:", width, "px;height:", height, "px", sep = "")
-  
+
   # create a list representing the parameters to JustGage
   options <- list(id = id,
                   title = x$title,
@@ -44,10 +44,10 @@ justgage_html <- function(x, width, height) {
 
   # generate html for the justgage
   html <- paste(
-    "<div id=\"", id, "\" ",  "style=\"", style, "\">", "</div>", 
+    "<div id=\"", id, "\" ",  "style=\"", style, "\">", "</div>",
     "<script>var g = new JustGage(", RJSONIO::toJSON(options), ");</script>",
     sep = "")
-  
+
   # return html
   html
 }

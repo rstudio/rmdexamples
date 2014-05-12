@@ -18,10 +18,10 @@ knit_print.datatable <- function(x, options, ...) {
 }
 
 datatable_html <- function(x) {
-  
+
   # create random/unique id for the table
-  id <- paste("datatable", as.integer(stats::runif(1, 1, 10000)), sep="-") 
-  
+  id <- paste("datatable", as.integer(stats::runif(1, 1, 10000)), sep="-")
+
   # generate an html version of the table that includes the id
   data <- x$data
   align = if (is.null(align <- x$align)) '' else {
@@ -29,8 +29,8 @@ datatable_html <- function(x) {
   }
   html <- paste(c(
     sprintf("<table id = \"%s\">", id),
-    c('<thead>', '<tr>', 
-      sprintf('<th>%s</th>', htmltools::html_escape(colnames(data))), 
+    c('<thead>', '<tr>',
+      sprintf('<th>%s</th>', htmltools::html_escape(colnames(data))),
       '</tr>', '</thead>'),
     '<tbody>',
     paste(
@@ -44,7 +44,7 @@ datatable_html <- function(x) {
     '</tbody>',
     '</table>'
   ), sep = '', collapse = '')
-   
+
   # append the script which binds the datatable
   html <- paste(html,
                 "<div>&nbsp;</div>",
@@ -53,7 +53,7 @@ datatable_html <- function(x) {
                 "$('#", id ,"').dataTable();",
                 "});",
                 "</script>", sep = "")
-    
+
   # return html
   html
 }

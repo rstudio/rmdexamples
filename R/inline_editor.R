@@ -1,10 +1,11 @@
 
 #' Inline Code Editor Widget
-#' 
-#' Creates an inline code editor using the ShinyAce package that allows users
-#' to dynamically enter and evaluate R code and see either a plot or textual
-#' output.
-#' @param type Either 'plot' or 'text', depending on what you want to output
+#'
+#' Creates an inline code editor using the \pkg{shinyAce} package that allows
+#' users to dynamically enter and evaluate R code and see either a plot or
+#' textual output.
+#' @param type Either \code{'plot'} or \code{'text'}, depending on what you want
+#'   to output.
 #' @param codeWidth Out of 12, how many columns should be occupied by the code,
 #'   the rest will be used for the output.
 #' @param initialVal The initial text to put in the editor. 

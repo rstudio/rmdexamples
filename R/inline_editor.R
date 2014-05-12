@@ -8,6 +8,7 @@
 #' @param codeWidth Out of 12, how many columns should be occupied by the code,
 #'   the rest will be used for the output.
 #' @param initialVal The initial text to put in the editor. 
+#' @param height The height of the editor (in pixels).
 #' @export
 inlineEditor <- function(type=c("plot", "text"), codeWidth=8, initialVal="",
                           height=300) { 

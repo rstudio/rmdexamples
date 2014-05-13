@@ -13,16 +13,14 @@ justgage <- function(title, value, min, max, label = NULL) {
 #' @export
 print.justgage <- function(x, ...) {
   htmltools::html_print(
-    justgage_html(x, 450, 350), 
-    justgage_dependencies()
+    justgage_html(x, 450, 350)
   )
 }
 
 #' @export
 knit_print.justgage <- function(x, options, ...) {
   htmltools::html_knit_print(
-    justgage_html(x, options$out.width.px, options$out.height.px), 
-    justgage_dependencies()
+    justgage_html(x, options$out.width.px, options$out.height.px)
   )
 }
 
@@ -49,7 +47,7 @@ justgage_html <- function(x, width, height) {
     sep = "")
   
   # return html
-  html
+  htmltools::html(html, justgage_dependencies())
 }
 
 justgage_dependencies <- function() {

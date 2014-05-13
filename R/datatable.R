@@ -9,12 +9,12 @@ datatable <- function(data, align = NULL) {
 
 #' @export
 print.datatable <- function(x, ...) {
-  htmltools::html_print(datatable_html(x), datatable_dependencies())
+  htmltools::html_print(datatable_html(x))
 }
 
 #' @export
 knit_print.datatable <- function(x, options, ...) {
-  htmltools::html_knit_print(datatable_html(x), datatable_dependencies())
+  htmltools::html_knit_print(datatable_html(x))
 }
 
 datatable_html <- function(x) {
@@ -55,7 +55,7 @@ datatable_html <- function(x) {
                 "</script>", sep = "")
     
   # return html
-  html
+  htmltools::html(html, datatable_dependencies())
 }
 
 datatable_dependencies <- function() {

@@ -11,20 +11,25 @@ justgage <- function(title, value, min, max, label = NULL) {
 }
 
 #' @export
+as_html.justgage <- function(x, ...) {
+  justgage_html(x, 450, 350)
+}
+
+#' @export
 print.justgage <- function(x, ...) {
   htmltools::html_print(
-    justgage_html(x, 450, 350)
+    as_html.justgage(x)
   )
 }
 
 #' @export
 knit_print.justgage <- function(x, options, ...) {
   htmltools::html_knit_print(
-    justgage_html(x, options$out.width.px, options$out.height.px)
+    as_html.justgage(x, options$out.width.px, options$out.height.px)
   )
 }
 
-justgage_html <- function(x, width, height) {
+as_html.justgage <- function(x, width = 450, height = 350) {
   
   # create random/unique id to bind the div and script
   id <- paste("justgage", as.integer(stats::runif(1, 1, 10000)), sep="-") 

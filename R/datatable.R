@@ -9,15 +9,20 @@ datatable <- function(data, align = NULL) {
 
 #' @export
 print.datatable <- function(x, ...) {
-  htmltools::html_print(datatable_html(x))
+  htmltools::html_print(
+    as_html.datatable(x)
+  )
 }
 
 #' @export
 knit_print.datatable <- function(x, options, ...) {
-  htmltools::html_knit_print(datatable_html(x))
+  htmltools::html_knit_print(
+    as_html.datatable(x)
+  )
 }
 
-datatable_html <- function(x) {
+#' @export
+as_html.datatable <- function(x) {
   
   # create random/unique id for the table
   id <- paste("datatable", as.integer(stats::runif(1, 1, 10000)), sep="-") 

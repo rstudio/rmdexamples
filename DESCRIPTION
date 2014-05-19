@@ -12,7 +12,7 @@ Depends:
     methods
 Imports:
     shiny,
-    htmltools,
+    htmltools (>= 0.2.2),
     knitr (>= 1.5.33),
     RJSONIO
 Suggests:

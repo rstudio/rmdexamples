@@ -1,5 +1,4 @@
-#' @import htmltools
-NULL
+#' @importFrom htmltools as.tags attachDependencies htmlDependency browsable
 
 #' @export
 justgage <- function(title, value, min, max, label = NULL,
@@ -69,7 +68,7 @@ justgage_html <- function(x, defaultWidth, defaultHeight) {
 }
 
 justgage_dependencies <- list(
-  htmltools::htmlDependency(
+  htmlDependency(
     name = "raphael",
     version = "2.1.2",
     src = system.file("www/libs/raphael-2.1.2", package = "rmdexamples"),

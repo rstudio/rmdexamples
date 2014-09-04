@@ -17,5 +17,4 @@ Imports:
     RJSONIO
 Suggests:
     shinyAce
-Roxygen: list(wrap = FALSE)
 License: MIT

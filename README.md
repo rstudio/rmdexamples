@@ -3,6 +3,7 @@ The **rmdexamples** package illustrates various techniques for extending [R Mark
 To try out rmdexamples locally you should first install the development versions of the **htmltools**, **knitr**, and **shiny** packages. You can do this as follows:
 
 ```r
+if (!require("devtools")) install.packages("devtools")
 devtools::install_github(c("rstudio/htmltools", "yihui/knitr", "rstudio/shiny"))
 ```
 

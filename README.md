@@ -2,13 +2,13 @@ The **rmdexamples** package illustrates various techniques for extending [R Mark
 
 To try out rmdexamples locally you should first install the development versions of the **htmltools**, **knitr**, and **shiny** packages. You can do this as follows:
 
-```S
+```r
 devtools::install_github(c("rstudio/htmltools", "yihui/knitr", "rstudio/shiny"))
 ```
 
 Then to install rmdexamples:
 
-```S
+```r
 devtools::install_github("rstudio/rmdexamples")
 ```
 

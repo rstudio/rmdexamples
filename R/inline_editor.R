@@ -14,8 +14,6 @@
 inlineEditor <- function(type=c("plot", "text"), codeWidth=8, initialVal="",
                           height=300) {
 
-  library(shinyAce)
-
   id <- as.character(round(runif(1, 10000, 99999)))
   inputId <- paste0("ace", id)
 
@@ -38,7 +36,7 @@ inlineEditor <- function(type=c("plot", "text"), codeWidth=8, initialVal="",
     ui = fluidPage(responsive=FALSE,
                    fluidRow(style="padding-bottom: 20px;",
                             column(codeWidth,
-                                   aceEditor(inputId,
+                                   shinyAce::aceEditor(inputId,
                                      value=initialVal,
                                      mode="r",
                                      height=(paste0(height-60,"px")))),

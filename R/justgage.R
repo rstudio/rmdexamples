@@ -61,13 +61,13 @@ justgage_html <- function(x, defaultWidth, defaultHeight) {
   # return html
   html <- attachDependencies(
     html,
-    justgage_dependencies
+    justgage_dependencies()
   )
 
   browsable(html)
 }
 
-justgage_dependencies <- list(
+justgage_dependencies <- function() list(
   htmlDependency(
     name = "raphael",
     version = "2.1.2",

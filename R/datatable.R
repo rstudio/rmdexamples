@@ -39,10 +39,10 @@ datatable <- function(data, align = NULL) {
     ))
   )
 
-  browsable(attachDependencies(table, datatable_dependencies))
+  browsable(attachDependencies(table, datatable_dependencies()))
 }
 
-datatable_dependencies <- list(
+datatable_dependencies <- function() list(
   htmltools::htmlDependency(
     name = "jquery",
     version = "1.11.0",

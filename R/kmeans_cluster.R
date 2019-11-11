@@ -1,4 +1,4 @@
-#' @import shiny methods
+#' @import graphics stats shiny methods
 #' @export
 kmeans_cluster <- function(dataset) {
 

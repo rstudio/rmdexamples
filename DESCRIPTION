@@ -18,3 +18,4 @@ Imports:
 Suggests:
     shinyAce
 License: MIT
+RoxygenNote: 6.1.1
